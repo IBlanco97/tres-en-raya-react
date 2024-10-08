@@ -8,7 +8,6 @@ Aquí practico:
 Un pequeño plus es que está habilitada la posibilidad de regresar a cualquier movimiento previo en el juego.
 
 ![Captura de pantalla](/screenshot.png)
-
 ## Instalación
 1. Clona este repositorio.
 2. Ejecuta `npm install` para instalar las dependencias.
