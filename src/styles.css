@@ -6,6 +6,7 @@ body {
   font-family: sans-serif;
   margin: 20px;
   padding: 0;
+  background-color: lightgray;
 }
 
 h1 {
@@ -56,25 +57,54 @@ body {
   padding: 0;
 }
 
+.square-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.square-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+.square-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.square-exit-active {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 300ms, transform 300ms;
+}
+
 .square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
+  width: 90px;
+  height: 90px;
   font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #333;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.square:hover {
+  background-color: #e9ecef;
+  transform: scale(1.05);
+}
+
+.board-row {
+  width: 400px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .board-row:after {
   clear: both;
   content: '';
-  display: table;
+  display: table;  
 }
 
 .status {
