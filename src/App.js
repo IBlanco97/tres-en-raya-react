@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { CSSTransition } from 'react-transition-group'
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, extraClass }) {
+  const className = "square btn btn-primary m-2 " + extraClass;
   return (
-    <button className="square btn btn-primary m-2" onClick={onSquareClick}>
+    <button className={className} onClick={onSquareClick}>
       {value}
     </button>
   );
@@ -54,22 +55,24 @@ function Board({ pX, squares, onPlay }) {
 
   return (
     <>
-      <div className="status">{status}</div>
-      <div>
+      <div className="status">
+        {status}
+      </div>
+      <div className="board">
         <div className="board-row d-flex flex-wrap justify-content-center mt-4">
-          <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
+          <Square value={squares[0]} onSquareClick={() => handleClick(0)} extraClass="right" />
           <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-          <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+          <Square value={squares[2]} onSquareClick={() => handleClick(2)} extraClass="left"/>
         </div>
-        <div className="board-row d-flex flex-wrap justify-content-center mt-4">
-          <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
+        <div className="board-row d-flex flex-wrap justify-content-center mt-4 center">
+          <Square value={squares[3]} onSquareClick={() => handleClick(3)} extraClass="right"/>
           <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-          <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+          <Square value={squares[5]} onSquareClick={() => handleClick(5)} extraClass="left"/>
         </div>
         <div className="board-row d-flex flex-wrap justify-content-center mt-4">
-          <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
+          <Square value={squares[6]} onSquareClick={() => handleClick(6)} extraClass="right"/>
           <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-          <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+          <Square value={squares[8]} onSquareClick={() => handleClick(8)} extraClass="left"/>
         </div>
       </div>
     </>
@@ -95,23 +98,28 @@ export default function Game() {
     const nextTimeline = timeline.slice(0, index + 1);
     setTimeline(nextTimeline);
     setSquares(nextTimeline.at(-1));
+    setPX(index % 2 === 0);
   }
 
   return (
     <div className="game">
-      <div className="gamne-board">
-        <Board pX={pX} squares={squares} onPlay={handlePlay} />
-      </div>
-      <div classname="game-info">
-        <ul>
-          {timeline.slice(0, timeline.length - 1).map((elemento, index) => (
-            <li>
-              <button key={index} onClick={() => handleBackInTime(index)}>
-                Back to<br></br>move {index}
-              </button>
-            </li>
-          ))}
-        </ul>
+      <div className="container main-container">
+        <div className="row">
+          <div classname="col-md-12">
+            <div className="gamne-board">
+              <Board pX={pX} squares={squares} onPlay={handlePlay} />
+            </div>
+            <div classname="game-info alert alert-info mt-4 p-3 text-center">
+                {timeline.slice(0, timeline.length - 1).map((elemento, index) => (
+                    <button classname="preview-button" key={index} onClick={() => handleBackInTime(index)}>
+                      Back to<br></br>move {index}
+                    </button>
+                  
+                ))}
+              
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
