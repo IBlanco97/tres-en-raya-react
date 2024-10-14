@@ -58,6 +58,7 @@ function Board({ pX, squares, onPlay }) {
       <div className="status">
         {status}
       </div>
+      <br></br>
       <div className="board">
         <div className="board-row d-flex flex-wrap justify-content-center mt-4">
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} extraClass="right" />
@@ -104,22 +105,20 @@ export default function Game() {
   return (
     <div className="game">
       <div className="container main-container">
-        <div className="row">
-          <div classname="col-md-12">
             <div className="gamne-board">
               <Board pX={pX} squares={squares} onPlay={handlePlay} />
             </div>
-            <div classname="game-info alert alert-info mt-4 p-3 text-center">
+            <br></br>
+            <div className="game-info">
                 {timeline.slice(0, timeline.length - 1).map((elemento, index) => (
-                    <button classname="preview-button" key={index} onClick={() => handleBackInTime(index)}>
+                    <button className="preview-button" key={index} onClick={() => handleBackInTime(index)}>
                       Back to<br></br>move {index}
                     </button>
                   
                 ))}
               
             </div>
-          </div>
-        </div>
+          
       </div>
     </div>
   );

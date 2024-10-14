@@ -1,56 +1,13 @@
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  margin-top: 0;
-  font-size: 22px;
-}
-
-h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-family: sans-serif;
-  margin: 20px;
+  margin: 0;
   padding: 0;
-  background-color: lightskyblue
+  background-color: lightskyblue;
 }
 
 .board {
   background-color: rgba(64, 64, 64, 0.5);
-  width: fit-content;
-  
+  width: fit-content;  
 }
 
 .board-row {
@@ -62,27 +19,11 @@ body {
 
 .main-container {
   width: 80%;
-  margin-left: 10%;
-  justify-content: center;
-}
-
-.square-enter {
-  opacity: 0;
-  transform: scale(0.9);
-}
-.square-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 300ms, transform 300ms;
-}
-.square-exit {
-  opacity: 1;
-  transform: scale(1);
-}
-.square-exit-active {
-  opacity: 0;
-  transform: scale(1.1);
-  transition: opacity 300ms, transform 300ms;
+  height: 80%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: grid;
+  place-items: center;
 }
 
 .square {
@@ -100,7 +41,7 @@ body {
 }
 
 .square:hover {
-  background-color: #e9ecef;
+  background-color: skyblue;
   transform: scale(1.05);
 }
 
@@ -126,20 +67,30 @@ body {
 .status {
   margin-bottom: 10px;
   font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+  font-weight: 300;
 }
 .game {
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
 }
 
 .game-info {
-  background-color: #f1f8ff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
+  height: 145px;
+  width: 375px;
 }
 .preview-button {
-  background-color: skyblue;
-  border: 1px;
+  background-color: lightskyblue;
+  border-width: 1px;
   border-radius: 10%;
+  border-color: black;
+  width: 70px;
+  height: 70px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-family: 'Courier New', Courier, monospace;
 }
