@@ -24,9 +24,6 @@ I developed a Tic-Tac-Toe game using React to learn this powerful framework. In 
 
 As a small bonus, I enabled the game to return to any previous move.
 
-## Screenshot
-![Captura de pantalla](/screenshot.png)
-
 ## Installation
 1. Clone this repository.
 2. Run `npm install` to install dependencies.
